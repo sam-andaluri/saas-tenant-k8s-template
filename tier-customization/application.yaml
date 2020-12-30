@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: $tenantId
+  namespace: $tenantId
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/sam-andaluri/saas-tenant-dot-cloud.git
+    targetRevision: HEAD
+    path: tier
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: $tenantId
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true

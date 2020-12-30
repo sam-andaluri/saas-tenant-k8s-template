@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  template:
+    spec:
+      containers:
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "512Mi"
+            cpu: "1000m"
