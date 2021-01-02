@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/sam-andaluri/saas-tenant-dot-cloud.git
+    repoURL: https://github.com/sam-andaluri/$repo.git
     targetRevision: HEAD
     path: tier
   destination:
