@@ -17,5 +17,12 @@ spec:
       containers:
       - name: frontend
         image: 427398298435.dkr.ecr.us-east-2.amazonaws.com/saas-tenant-dot-cloud:latest
+        resources:
+          requests:
+            memory: "$reqMem"
+            cpu: "$reqCpu"
+          limits:
+            memory: "$limMem"
+            cpu: "$limCpu"
         ports:
           - containerPort: 80
