@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: $tenantId
+  namespace: $tenantId-frontend
   name: frontend-deployment
 spec:
   replicas: 1

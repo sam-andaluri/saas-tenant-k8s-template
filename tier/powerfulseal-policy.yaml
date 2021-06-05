@@ -1,0 +1,23 @@
+scenarios:
+- name: $tenantId-frontend
+  description: >
+    Verifies that after a pod is killed,
+    it's succesfully rescheduled after 30 seconds.
+  steps:
+  - podAction:
+      matches:
+        - namespace: $tenantId-frontend
+      filters:
+        - randomSample:
+            size: 1
+      actions:
+        - kill:
+            probability: 1
+  - wait:
+      seconds: 30
+  - podAction:
+      matches:
+        - namespace: $tenantId-frontend
+      actions:
+        - checkPodState:
+            state: Running

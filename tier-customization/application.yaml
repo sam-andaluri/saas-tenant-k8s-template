@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: $tenantId
+  name: $tenantId-frontend
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: $tenantId
+  name: $tenantId-frontend
 spec:
   project: default
   source:
@@ -15,7 +15,7 @@ spec:
     path: tier
   destination:
     server: https://kubernetes.default.svc
-    namespace: $tenantId
+    namespace: $tenantId-frontend
   syncPolicy:
     automated:
       prune: true

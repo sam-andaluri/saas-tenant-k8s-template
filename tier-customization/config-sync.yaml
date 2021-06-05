@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: $tenantId
+---
+apiVersion: configmanagement.gke.io/v1
+kind: ConfigManagement
+metadata:
+  name: config-management
+spec:
+  # clusterName is required and must be unique among all managed clusters
+  clusterName: $cluster
+  git:
+    syncRepo: https://github.com/sam-andaluri/$repo.git
+    syncBranch: main
+    secretType: none
+    policyDir: "tier"
